@@ -1,6 +1,9 @@
 title 'system'
 version = attribute(
-  'version', default: '2.60.3-1.1', description: 'Jenkins version')
+  'version',
+  default: '2.60.3-1.1',
+  description: 'Jenkins version'
+)
 
 control 'system-01' do
   title 'Jenkins Service'

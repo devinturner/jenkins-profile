@@ -1,16 +1,26 @@
 title 'vitals'
 ports = attribute(
-  'ports', default: ['8080'], description: 'Ports that Jenkins listening on')
-as_client = attribute(
-  'as_client', default: false, description: 'Test as client')
-jenkins_url = attribute(
-  'jenkins_url', default: 'http://localhost:8080', description: 'Jenkins URL')
+  'ports',
+  default: ['8080'],
+  description: 'Ports that Jenkins listening on'
+)
 
+as_client = attribute(
+  'as_client',
+  default: false,
+  description: 'Test as client'
+)
+
+jenkins_url = attribute(
+  'jenkins_url',
+  default: 'http://localhost:8080',
+  description: 'Jenkins URL'
+)
 
 control 'vital-1.0' do
   impact 1.0
   title 'Port connections'
-  for port in ports
+  ports.each do |port|
     describe port(port) do
       it { should be_listening }
     end
