@@ -1,2 +1,3 @@
-# jenkins-profile
-Acceptance tests for Jenkins with Inspec
+# Example InSpec Profile
+
+This example shows the implementation of an InSpec profile.
