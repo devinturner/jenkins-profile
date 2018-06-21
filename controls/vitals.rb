@@ -5,12 +5,6 @@ ports = attribute(
   description: 'Ports that Jenkins listening on'
 )
 
-as_client = attribute(
-  'as_client',
-  default: false,
-  description: 'Test as client'
-)
-
 jenkins_url = attribute(
   'jenkins_url',
   default: 'http://localhost:8080',
@@ -38,7 +32,7 @@ end
 control 'vital-3.0' do
   impact 1.0
   title 'Web interface'
-  describe http(jenkins_url, enable_remote_worker: as_client) do
+  describe http(jenkins_url) do
     its('status') { should cmp 200 }
     its('body') { should include 'Jenkins' }
   end

@@ -4,7 +4,11 @@ version = attribute(
   default: '2.60.3-1.1',
   description: 'Jenkins version'
 )
-
+jenkins_home = attribute(
+  'jenkins_home',
+  default: '/var/lib/jenkins',
+  description: 'Jenkins home'
+)
 control 'system-01' do
   title 'Jenkins Service'
   impact 0.8
@@ -23,5 +27,10 @@ control 'system-01' do
   end
   describe user('jenkins') do
     its('shell') { should eq '/bin/bash' }
+  end
+  describe file(jenkins_home) do
+    it { should be_directory }
+    its('group') { should eq 'jenkins' }
+    its('owner') { should eq 'jenkins' }
   end
 end
