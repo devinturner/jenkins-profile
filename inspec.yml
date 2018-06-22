@@ -3,6 +3,6 @@ title: InSpec Jenkins Profile
 maintainer: Alexander Braverman Masis
 copyright: Red Hat
 copyright_email: abraverm@redhat.com
-license: GPLv3
+license: GPL-3.0
 summary: An InSpec Jenkins Compliance Profile
 version: 0.1.0
