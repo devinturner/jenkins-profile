@@ -1,2 +1,1 @@
-# jenkins-profile
-Acceptance tests for Jenkins with Inspec
+# Jenkins InSpec Profile
