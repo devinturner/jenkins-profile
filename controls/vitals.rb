@@ -33,7 +33,7 @@ control 'vital-3.0' do
   impact 1.0
   title 'Web interface'
   describe http(jenkins_url) do
-    its('status') { should cmp 200 }
-    its('body') { should include 'Jenkins' }
+    its('status') { should cmp 403 }
+    its('body') { should include 'Authentication' }
   end
 end

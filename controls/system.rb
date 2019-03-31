@@ -1,7 +1,7 @@
 title 'system'
 version = attribute(
   'version',
-  default: '2.60.3-1.1',
+  default: '2.164.1',
   description: 'Jenkins version'
 )
 jenkins_home = attribute(
@@ -21,9 +21,9 @@ control 'system-01' do
     it { should be_installed }
     its('version') { should eq version }
   end
-  describe yum do
-    its('jenkins') { should exist }
-    its('jenkins') { should be_enabled }
+  describe apt('http://pkg.jenkins.io/debian-stable') do
+    it { should exist }
+    it { should be_enabled }
   end
   describe user('jenkins') do
     its('shell') { should eq '/bin/bash' }
