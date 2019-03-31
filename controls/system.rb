@@ -21,10 +21,6 @@ control 'system-01' do
     it { should be_installed }
     its('version') { should eq version }
   end
-  describe apt('http://pkg.jenkins.io/debian-stable') do
-    it { should exist }
-    it { should be_enabled }
-  end
   describe user('jenkins') do
     its('shell') { should eq '/bin/bash' }
   end
